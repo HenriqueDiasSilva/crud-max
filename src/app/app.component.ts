@@ -6,5 +6,12 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'crud-max';
+  title = 'Clientes';
+  urlLogo = 'https://desenvolvimento.maxdata.com.br/assets/imagens/login/MaxWEB.svg'
+
+  sidebarOpen = false;
+  
+  toggleSidebar(){
+    this.sidebarOpen = !this.sidebarOpen;
+  }
 }

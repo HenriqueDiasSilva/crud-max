@@ -1,0 +1,39 @@
+$light-gray: #f1f3f4;
+$dark-gray: #3f4150;
+$black: #333;
+
+.toolbar {
+    background-color: $light-gray;
+
+    .menu {
+        background-color: $dark-gray;
+
+        mat-icon {
+            color: $light-gray;
+        }
+    }
+
+    .logo {
+        max-width: 12rem;
+        margin-left: 1rem;
+        margin-right: 1rem;
+        height: auto;
+    }
+
+    .title {
+        color: $black;
+        font-size: 1.8rem;
+        font-weight: 700;
+    }
+}
+
+.content-container {
+    background-color: $light-gray;
+    min-height: 91vh;
+
+    .sidebar {
+        background-color: $light-gray;
+        height: 100%;
+        width: 15%;
+    }
+}
