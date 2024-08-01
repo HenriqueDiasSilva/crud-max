@@ -1,0 +1,73 @@
+$dark-gray: #3f4150;
+$green: #48C280;
+$red: #c31f24;
+
+.container {
+    margin: 1rem 3.5rem 1rem 3.5rem;
+
+    @media (max-width: 768px) {
+        margin: 1rem 1rem 1rem 1rem;
+    }
+}
+
+.filters {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+.mat-card-content {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    padding-bottom: 0 !important;
+}
+
+.mat-card-filters {
+    flex-grow: 1;
+    min-width: 6rem;
+    flex-basis: 9rem;
+}
+
+#button-back {
+    margin-right: 0.3rem;
+    background-color: $dark-gray;
+    color: white;
+}
+
+#button-add {
+    background-color: $green;
+    color: white;
+}
+
+#button-search {
+    background-color: $dark-gray;
+    color: white;
+    margin-bottom: 0.6rem;
+
+    @media (min-width: 1024px) {
+        margin-top: 0.6rem;
+    }
+}
+
+#delete-icon {
+    color: $red;
+}
+
+#edit-icon {
+    color: $dark-gray;
+}
+
+@media (max-width: 426px) {
+    table {
+        width: 100%;
+        overflow-x: auto;
+        display: block;
+    }
+
+    th,
+    td {
+        word-wrap: break-word;
+        white-space: normal;
+        font-size: 0.8rem;
+    }
+}
