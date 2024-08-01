@@ -1,1 +1,155 @@
-<p>edit works!</p>
+<div class="container">
+    <div class="card">
+        <mat-card>
+            <mat-card-content class="mat-card-content">
+                <mat-form-field appearance="outline">
+                    <mat-label>Cadastro</mat-label>
+                    <mat-select [(ngModel)]="register">
+                        <mat-option *ngFor="let reg of registers" [value]="reg.value">
+                            {{reg.view_value}}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+                <mat-form-field appearance="outline">
+                    <mat-label>Pessoa</mat-label>
+                    <mat-select [(ngModel)]="person">
+                        <mat-option *ngFor="let per of people" [value]="per.value">
+                            {{per.view_value}}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+                <mat-form-field appearance="outline">
+                    <mat-label>Nome do Cliente</mat-label>
+                    <input matInput type="text" [(ngModel)]="client_name" required>
+                    <mat-error *ngIf="!client_name">Nome do cliente é obrigatório</mat-error>
+                </mat-form-field>
+                <mat-form-field appearance="outline">
+                    <mat-label>CPF / CNPJ</mat-label>
+                    <input matInput type="text" placeholder="Ex: 000.000.000-51" [(ngModel)]="client_cpf_cnpj" required>
+                    <mat-error *ngIf="!client_cpf_cnpj">CPF / CNPJ do cliente é obrigatório</mat-error>
+                </mat-form-field>
+                <mat-form-field appearance="outline">
+                    <mat-label>Ativo</mat-label>
+                    <mat-select [(ngModel)]="active">
+                        <mat-option *ngFor="let act of active_type" [value]="act.value">
+                            {{act.view_value}}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </mat-card-content>
+        </mat-card>
+    </div>
+
+    <div class="card">
+        <mat-card>
+            <mat-card-header class="mat-card-header">
+                <mat-card-title>Principal</mat-card-title>
+            </mat-card-header>
+            <mat-card-content class="mat-card-content">
+                <mat-form-field appearance="outline">
+                    <mat-label>Tipo Cliente</mat-label>
+                    <mat-select [(ngModel)]="client_type">
+                        <mat-option *ngFor="let client_type of clients_type" [value]="client_type.value">
+                            {{client_type.view_value}}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+                <mat-form-field appearance="outline">
+                    <mat-label>Nome Curto</mat-label>
+                    <input matInput type="text" placeholder="Apelido do Cliente" [(ngModel)]="client_fantasy">
+                </mat-form-field>
+                <mat-form-field appearance="outline">
+                    <mat-label>Alterar Nome</mat-label>
+                    <mat-select [(ngModel)]="alter">
+                        <mat-option *ngFor="let alt of alter_type" [value]="alt.value">
+                            {{alt.view_value}}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+                <mat-form-field appearance="outline">
+                    <mat-label>RG</mat-label>
+                    <input matInput type="text" [(ngModel)]="client_rg">
+                </mat-form-field>
+                <mat-form-field appearance="outline">
+                    <mat-label>Fone</mat-label>
+                    <input matInput type="text" placeholder="Ex: (11) 1234-5678" [(ngModel)]="client_phone">
+                </mat-form-field>
+                <mat-form-field appearance="outline">
+                    <mat-label>Celular</mat-label>
+                    <input matInput type="text" placeholder="Ex: (11) 12345-6789" [(ngModel)]="client_cell_phone">
+                </mat-form-field>
+                <mat-form-field appearance="outline">
+                    <mat-label>Desconto Automático</mat-label>
+                    <input matInput placeholder="Insira o valor" type="number" min="0" max="100" [(ngModel)]="discount">
+                    <mat-error *ngIf="discount < 0 || discount > 100">
+                        O valor deve estar entre 0 e 100
+                    </mat-error>
+                    <span matSuffix id="default-suffix">%</span>
+                </mat-form-field>
+            </mat-card-content>
+        </mat-card>
+    </div>
+
+    <div class="card">
+        <mat-card>
+            <mat-card-header class="mat-card-header">
+                <mat-card-title>Endereço</mat-card-title>
+            </mat-card-header>
+            <mat-card-content class="mat-card-content">
+                <mat-form-field appearance="outline">
+                    <mat-label>CEP</mat-label>
+                    <input matInput type="text" [(ngModel)]="cep" required="">
+                    <mat-error *ngIf="!cep">
+                        CEP é obrigatório
+                    </mat-error>
+                    <span matSuffix id="suffix">
+                        <mat-icon fontIcon="search"></mat-icon>
+                    </span>
+                </mat-form-field>
+                <mat-form-field appearance="outline">
+                    <mat-label>Estado UF</mat-label>
+                    <input matInput type="text" [(ngModel)]="uf" disabled>
+                </mat-form-field>
+                <mat-form-field appearance="outline">
+                    <mat-label>Município</mat-label>
+                    <input matInput type="text" [(ngModel)]="county" disabled>
+                </mat-form-field>
+                <mat-form-field appearance="outline">
+                    <mat-label>Endereço</mat-label>
+                    <input matInput type="text" [(ngModel)]="adress" disabled required>
+                    <mat-error *ngIf="!adress">
+                        Endereço é obrigatório
+                    </mat-error>
+                </mat-form-field>
+                <mat-form-field appearance="outline">
+                    <mat-label>Bairro</mat-label>
+                    <input matInput type="text" [(ngModel)]="neighborhood" disabled required>
+                    <mat-error *ngIf="!neighborhood">
+                        Bairro é obrigatório
+                    </mat-error>
+                </mat-form-field>
+                <mat-form-field appearance="outline">
+                    <mat-label>Número</mat-label>
+                    <input matInput type="text" [(ngModel)]="number" required>
+                    <mat-error *ngIf="!neighborhood">
+                        Número é obrigatório
+                    </mat-error>
+                </mat-form-field>
+                <mat-form-field appearance="outline">
+                    <mat-label>I.E Prod. Rural</mat-label>
+                    <input matInput type="text" [(ngModel)]="ie">
+                </mat-form-field>
+                <mat-form-field appearance="outline">
+                    <mat-label>Descrição</mat-label>
+                    <input matInput type="text" [(ngModel)]="description">
+                </mat-form-field>
+            </mat-card-content>
+        </mat-card>
+    </div>
+    <div class="button">
+        <button mat-flat-button id="button-add" routerLink="add">
+            <mat-icon aria-hidden="false" fontIcon="check"></mat-icon>
+            Salvar
+        </button>
+    </div>
+</div>
