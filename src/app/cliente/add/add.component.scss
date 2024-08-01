@@ -1,0 +1,53 @@
+$dark-gray: #3f4150;
+$green: #48C280;
+$red: #c31f24;
+
+.container {
+    margin: 1rem 3.5rem 1rem 3.5rem;
+
+    @media (max-width: 768px) {
+        margin: 1rem 1rem 1rem 1rem;
+    }
+}
+
+.card {
+    margin-top: 0.9rem;
+    margin-bottom: 0.9rem;
+
+    .mat-card-header {
+        margin-bottom: 0.5rem;
+    }
+
+    .mat-card-content {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        padding-bottom: 0 !important;
+
+        mat-form-field {
+            flex-grow: 1;
+            min-width: 6rem;
+            flex-basis: 15rem;
+        }
+
+        #default-suffix {
+            padding: 1rem;
+        }
+
+        #suffix {
+            padding: 1rem;
+            display: block;
+            cursor: pointer;
+        }
+    }
+}
+
+.button {
+    display: flex;
+    justify-content: end;
+
+    #button-add {
+        background-color: $green;
+        color: white;
+    }
+}
