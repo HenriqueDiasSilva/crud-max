@@ -6,6 +6,7 @@ $black: #333;
     background-color: $light-gray;
 
     .menu {
+        margin-top: -0.5rem;
         background-color: $dark-gray;
 
         mat-icon {
@@ -18,12 +19,20 @@ $black: #333;
         margin-left: 1rem;
         margin-right: 1rem;
         height: auto;
+
+        @media (max-width: 425px) {
+            max-width: 8rem;
+        }
     }
 
     .title {
         color: $black;
         font-size: 1.8rem;
         font-weight: 700;
+
+        @media (max-width: 425px) {
+            font-size: 1.5rem;
+        }
     }
 }
 
@@ -34,6 +43,14 @@ $black: #333;
     .sidebar {
         background-color: $light-gray;
         height: 100%;
-        width: 15%;
+        width: 65%;
+
+        @media (min-width: 768px) {
+            width: 30%;
+        }
+
+        @media (min-width: 1025px) {
+            width: 15%;
+        }
     }
 }

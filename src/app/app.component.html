@@ -1,14 +1,15 @@
 <mat-toolbar class="toolbar">
-  <button mat-icon-button (click)="toggleSidebar()" class="menu"
-    aria-label="Menu Button">
+  <button mat-icon-button (click)="toggleSidebar()" class="menu" aria-label="Menu Button">
     <mat-icon>menu</mat-icon>
   </button>
-  <img class="logo" [src]="urlLogo" alt="Logo Max Web" />
-  <span class="title">{{title}}</span>
+  <a routerLink="/cliente">
+    <img class="logo" [src]="urlLogo" alt="Logo Max Web" />
+  </a>
+  <p class="title">{{title}}</p>
 </mat-toolbar>
 
 <mat-drawer-container class="content-container">
-  <mat-drawer class="sidebar" mode="side" [opened]="sidebarOpen">
+  <mat-drawer class="sidebar" mode="over" [opened]="sidebarOpen">
     <app-sidebar></app-sidebar>
   </mat-drawer>
   <mat-drawer-content>
