@@ -17,6 +17,7 @@ interface Value {
 export class ClienteComponent {
   client: Client[] = [];
   data_source: any;
+  isLoading = true;
 
   constructor(private clienteService: ClienteService) {}
 
@@ -25,6 +26,7 @@ export class ClienteComponent {
       this.client = response.itens;
       this.data_source = new MatTableDataSource<Client>(this.client);
       this.data_source.paginator = this.paginator;
+      this.isLoading = false;
     });
   }
 

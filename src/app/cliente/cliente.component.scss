@@ -28,6 +28,12 @@ $red: #c31f24;
     flex-basis: 9rem;
 }
 
+.spinner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 #button-back {
     margin-right: 0.3rem;
     background-color: $dark-gray;

@@ -41,7 +41,8 @@ export class ClienteService {
   }
 
   getClients(): Observable<Client[]> {
-    return this.http.get<Client[]>(this.api_url, {
+    const url = `${this.api_url}?limit=500`;
+    return this.http.get<Client[]>(url, {
       headers: new HttpHeaders({
         Authorization: `Bearer ${this.getAccessToken()}`,
       }),
