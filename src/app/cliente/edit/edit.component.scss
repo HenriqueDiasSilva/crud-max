@@ -44,7 +44,7 @@ $red: #c31f24;
 
 .button {
     display: flex;
-    justify-content: end;
+    justify-content: flex-end;
 
     #button-add {
         background-color: $green;
