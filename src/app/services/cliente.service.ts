@@ -31,8 +31,8 @@ export class ClienteService {
     return localStorage.getItem('access_token');
   }
 
-  createClient(client: Client): Observable<Client> {
-    return this.http.post<Client>(this.api_url, client, {
+  createClient(client: any): Observable<any> {
+    return this.http.post<any>(this.api_url, client, {
       headers: new HttpHeaders({
         'Content-Type': 'application/json',
         Authorization: `Bearer ${this.getAccessToken()}`,
@@ -57,27 +57,18 @@ export class ClienteService {
     });
   }
 
-  updateClient(client: Client): Observable<Client> {
-    const url = `${this.api_url}/${client.id}`;
-    return this.http.put<Client>(url, client, {
+  editClient(client: any, id: String): Observable<any> {
+    const url = `${this.api_url}/${id}`;
+    return this.http.put<any>(url, client, {
       headers: new HttpHeaders({
         'Content-Type': 'application/json',
-        Authorization: `Bearer ${this.getAccessToken()}`,
-      }),
-    });
-  }
-
-  deleteClient(id: number): Observable<void> {
-    const url = `${this.api_url}/${id}`;
-    return this.http.delete<void>(url, {
-      headers: new HttpHeaders({
-        Authorization: `Bearer ${this.getAccessToken()}`,
+        'Authorization': `Bearer ${this.getAccessToken()}`,
       }),
     });
   }
 
   openCEP(cep: any) {
     const url = `${this.cep_url}/${cep}`;
-    return this.http.get<any>(url)
+    return this.http.get<any>(url);
   }
 }
