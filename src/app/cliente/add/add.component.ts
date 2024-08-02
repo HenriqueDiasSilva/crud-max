@@ -1,4 +1,4 @@
-import { Component } from "@angular/core";
+import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ClienteService } from 'src/app/services/cliente.service';
 
@@ -8,12 +8,14 @@ interface Value {
 }
 
 @Component({
-  selector: "app-add",
-  templateUrl: "./add.component.html",
-  styleUrls: ["./add.component.scss"],
+  selector: 'app-add',
+  templateUrl: './add.component.html',
+  styleUrls: ['./add.component.scss'],
 })
 export class AddComponent {
-  id: number = -1;
+  isDisabled: boolean = true;
+
+  id: number = 0;
 
   register: string = '';
   person: string = '';
@@ -71,4 +73,17 @@ export class AddComponent {
     private clienteService: ClienteService,
     private route: ActivatedRoute
   ) {}
+
+  searchCEP() {
+    this.clienteService.openCEP(this.cep).subscribe((response: any) => {
+      this.neighborhood = response.bairro;
+      this.cep = response.cep;
+      this.description = response.complemento;
+      this.county = response.localidade;
+      this.adress = response.logradouro;
+      this.uf = response.uf;
+
+      this.isDisabled = false;
+    });
+  }
 }

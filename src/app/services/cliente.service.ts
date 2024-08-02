@@ -6,10 +6,11 @@ import { Client } from '../models/client';
 @Injectable({
   providedIn: 'root',
 })
-
 export class ClienteService {
-  private login_url = 'https://desenvolvimento.maxdata.com.br/api/v1/Auth/login';
+  private login_url =
+    'https://desenvolvimento.maxdata.com.br/api/v1/Auth/login';
   private api_url = 'https://desenvolvimento.maxdata.com.br/api/v1/Cadastro';
+  private cep_url = 'https://opencep.com/v1';
 
   constructor(private http: HttpClient) {}
 
@@ -73,5 +74,10 @@ export class ClienteService {
         Authorization: `Bearer ${this.getAccessToken()}`,
       }),
     });
+  }
+
+  openCEP(cep: any) {
+    const url = `${this.cep_url}/${cep}`;
+    return this.http.get<any>(url)
   }
 }

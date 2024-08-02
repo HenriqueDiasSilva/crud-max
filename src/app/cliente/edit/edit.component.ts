@@ -13,7 +13,7 @@ interface Value {
   styleUrls: ['./edit.component.scss'],
 })
 export class EditComponent {
-  id: number = -1;
+  id: number = 0;
 
   register: string = '';
   person: string = '';
@@ -73,7 +73,7 @@ export class EditComponent {
   ) {}
 
   ngOnInit(): void {
-    this.id = parseInt(this.route.snapshot.paramMap.get('id') || '-1', 10);
+    this.id = parseInt(this.route.snapshot.paramMap.get('id') || '0', 10);
     this.clienteService.getClientById(this.id).subscribe((response: any) => {
       
       const index_reg = this.registers.findIndex(
@@ -110,5 +110,20 @@ export class EditComponent {
       this.ie = response.cadastro_endereco_padrao.ie_produtor_rural;
       this.description = response.cadastro_endereco_padrao.descricao;
     });
+  }
+
+  searchCEP() {
+    this.clienteService.openCEP(this.cep).subscribe((response: any) => {
+      this.neighborhood = response.bairro;
+      this.cep = response.cep;
+      this.description = response.complemento;
+      this.county = response.localidade;
+      this.adress = response.logradouro;
+      this.uf = response.uf;
+    });
+  }
+
+  salvar(){
+    console.log("salvar");
   }
 }

@@ -3,6 +3,10 @@
         <mat-card>
             <mat-card-content class="mat-card-content">
                 <mat-form-field appearance="outline">
+                    <mat-label>Código</mat-label>
+                    <input matInput type="text" [(ngModel)]="id" disabled="">
+                </mat-form-field>
+                <mat-form-field appearance="outline">
                     <mat-label>Cadastro</mat-label>
                     <mat-select [(ngModel)]="register">
                         <mat-option *ngFor="let reg of registers" [value]="reg.value">
@@ -21,12 +25,12 @@
                 <mat-form-field appearance="outline">
                     <mat-label>Nome do Cliente</mat-label>
                     <input matInput type="text" [(ngModel)]="client_name" required>
-                    <mat-error *ngIf="!client_name">Nome do cliente é obrigatório</mat-error>
+                    <mat-error *ngIf="!client_name">Item obrigatório</mat-error>
                 </mat-form-field>
                 <mat-form-field appearance="outline">
                     <mat-label>CPF / CNPJ</mat-label>
                     <input matInput type="text" placeholder="Ex: 000.000.000-51" [(ngModel)]="client_cpf_cnpj" required>
-                    <mat-error *ngIf="!client_cpf_cnpj">CPF / CNPJ do cliente é obrigatório</mat-error>
+                    <mat-error *ngIf="!client_cpf_cnpj">Item obrigatório</mat-error>
                 </mat-form-field>
                 <mat-form-field appearance="outline">
                     <mat-label>Ativo</mat-label>
@@ -100,9 +104,9 @@
                     <mat-label>CEP</mat-label>
                     <input matInput type="text" [(ngModel)]="cep" required="">
                     <mat-error *ngIf="!cep">
-                        CEP é obrigatório
+                        Item obrigatório
                     </mat-error>
-                    <span matSuffix id="suffix">
+                    <span matSuffix id="suffix" (click)="searchCEP()">
                         <mat-icon fontIcon="search"></mat-icon>
                     </span>
                 </mat-form-field>
@@ -112,27 +116,27 @@
                 </mat-form-field>
                 <mat-form-field appearance="outline">
                     <mat-label>Município</mat-label>
-                    <input matInput type="text" [(ngModel)]="county" disabled>
+                    <input matInput type="text" [(ngModel)]="county">
                 </mat-form-field>
                 <mat-form-field appearance="outline">
                     <mat-label>Endereço</mat-label>
-                    <input matInput type="text" [(ngModel)]="adress" disabled required>
+                    <input matInput type="text" [(ngModel)]="adress" required>
                     <mat-error *ngIf="!adress">
-                        Endereço é obrigatório
+                        Item obrigatório
                     </mat-error>
                 </mat-form-field>
                 <mat-form-field appearance="outline">
                     <mat-label>Bairro</mat-label>
-                    <input matInput type="text" [(ngModel)]="neighborhood" disabled required>
+                    <input matInput type="text" [(ngModel)]="neighborhood" required>
                     <mat-error *ngIf="!neighborhood">
-                        Bairro é obrigatório
+                        Item obrigatório
                     </mat-error>
                 </mat-form-field>
                 <mat-form-field appearance="outline">
                     <mat-label>Número</mat-label>
                     <input matInput type="text" [(ngModel)]="number" required>
                     <mat-error *ngIf="!neighborhood">
-                        Número é obrigatório
+                        Item obrigatório
                     </mat-error>
                 </mat-form-field>
                 <mat-form-field appearance="outline">
@@ -147,7 +151,7 @@
         </mat-card>
     </div>
     <div class="button">
-        <button mat-flat-button id="button-add" routerLink="add">
+        <button mat-flat-button id="button-add" (click)="salvar()" >
             <mat-icon aria-hidden="false" fontIcon="check"></mat-icon>
             Salvar
         </button>

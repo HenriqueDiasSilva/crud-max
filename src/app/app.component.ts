@@ -8,7 +8,7 @@ import { ClienteService } from "./services/cliente.service";
   styleUrls: ["./app.component.scss"],
 })
 export class AppComponent implements OnInit {
-  title = "Clientes";
+  title = "";
   urlLogo = "https://desenvolvimento.maxdata.com.br/assets/imagens/login/MaxWEB.svg";
   sidebarOpen = false;
 
