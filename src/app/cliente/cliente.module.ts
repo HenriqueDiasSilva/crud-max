@@ -19,13 +19,11 @@ import { FormsModule } from '@angular/forms';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { MatDialogModule } from '@angular/material/dialog';
+import { DialogComponent } from './dialog/dialog.component';
 
 @NgModule({
-  declarations: [
-    ClienteComponent,
-    AddComponent,
-    EditComponent,
-  ],
+  declarations: [ClienteComponent, AddComponent, EditComponent, DialogComponent],
   imports: [
     CommonModule,
     ClienteRoutingModule,
@@ -42,7 +40,8 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
     FormsModule,
     MatTooltipModule,
     MatSnackBarModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
+    MatDialogModule,
   ],
   providers: [{ provide: MAT_DATE_LOCALE, useValue: 'pt-BR' }],
 })

@@ -76,7 +76,7 @@
                             matTooltipPosition="left">
                             <mat-icon class="white-icon" fontIcon="edit"></mat-icon>
                         </a>
-                        <a [routerLink]="['delete', element.id]" id="delete-icon" matTooltip="Desativar Cliente"
+                        <a id="delete-icon" matTooltip="Desativar Cliente" (click)="openDialog(element.id)"
                             matTooltipPosition="right">
                             <mat-icon fontIcon="close"></mat-icon>
                         </a>

@@ -68,6 +68,16 @@ export class ClienteService {
     });
   }
 
+  disableClient(client: any, id: String): Observable<any> {
+    const url = `${this.api_url}/${id}`;
+    return this.http.put<any>(url, client, {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${this.getAccessToken()}`,
+      }),
+    });
+  }
+
   openCEP(cep: any) {
     const url = `${this.cep_url}/${cep}`;
     return this.http.get<any>(url);
