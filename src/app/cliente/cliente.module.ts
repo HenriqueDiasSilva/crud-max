@@ -5,7 +5,6 @@ import { ClienteRoutingModule } from './cliente-routing.module';
 import { ClienteComponent } from './cliente.component';
 import { AddComponent } from './add/add.component';
 import { EditComponent } from './edit/edit.component';
-import { DeleteComponent } from './delete/delete.component';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatCardModule } from '@angular/material/card';
@@ -26,7 +25,6 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
     ClienteComponent,
     AddComponent,
     EditComponent,
-    DeleteComponent,
   ],
   imports: [
     CommonModule,
